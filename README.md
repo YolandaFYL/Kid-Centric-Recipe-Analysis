@@ -132,29 +132,37 @@ In this section, we examine the missingness dependency of the `'rating'` column.
 
 #### Dependency on `'is_kid'`
 
-<iframe src="assets/missingko.html" width="850" height="650" frameborder="0"></iframe>
+The distribution of `'is_kid'` when `'rating'` is missing and the distribution of `'is_kid'` when `'rating'` is not missing.
+
+<iframe src="assets/missingko.html" width="650" height="450" frameborder="0"></iframe>
 
 - **Null Hypothesis:** The missingness of ratings does not depend on whether the recipe is labeled as kid-friendly.
 - **Alternate Hypothesis:** The missingness of ratings does depend on whether the recipe is labeled as kid-friendly.
 - **Test Statistic:** The Total Variation Distance (TVD) in whether the recipe is labeled as kid-friendly between the group with missing ratings and the group without missing ratings.
 - **Significance Level:** 0.05
 
+The empirical distribution of the TVD, along with the observed statistic of 0.0044 indicated by the red vertical line on the graph.
+
 <iframe src="assets/missingk.html" width="850" height="650" frameborder="0"></iframe>
 
-The observed statistic of 0.0044 is indicated by the red vertical line on the graph. Since the p-value that we found (0.086) is greater than 0.05, which is the significance level we set, we fail to reject the null hypothesis. Therefore, the missingness of the `'rating'` does not depend on the `'is_kid'` column, meaning that whether the recipe is labeled as kid-friendly does not significantly relate to the likelihood of a rating being missing.
+Since the p-value that we found (0.086) is greater than 0.05, which is the significance level we set, we fail to reject the null hypothesis. Therefore, the missingness of the `'rating'` does not depend on the `'is_kid'` column, meaning that whether the recipe is labeled as kid-friendly does not significantly relate to the likelihood of a rating being missing.
 
 #### Dependency on `'sodium(PDV)'`
 
-<iframe src="assets/missingso.html" width="850" height="650" frameborder="0"></iframe>
+The distribution of `'sodium(PDV)'` when `'rating'` is missing and the distribution of `'sodium(PDV)'` when `'rating'` is not missing.
+
+<iframe src="assets/missingso.html" width="650" height="450" frameborder="0"></iframe>
 
 - **Null Hypothesis:** The missingness of ratings does not depend on the sodium (PDV) level of the recipe.
 - **Alternate Hypothesis:** The missingness of ratings does depend on the sodium (PDV) level of the recipe.
 - **Test Statistic:** The Kolmogorov–Smirnov (K-S) statistic in the sodium (PDV) level distribution between the group with missing ratings and the group without missing ratings.
 - **Significance Level:** 0.05
 
+The empirical distribution of the K-S statistic, along with the observed statistic of 0.0344 indicated by the red vertical line on the graph.
+
 <iframe src="assets/missings.html" width="850" height="650" frameborder="0"></iframe>
 
-The observed statistic of 0.0345 is indicated by the red vertical line on the graph. Since the p-value that we found (0.0) is smaller than 0.05, which is the significance level we set, we reject the null hypothesis. Therefore, the missingness of the `'rating'` depends on the `'sodium(PDV)'` column, meaning that the sodium content of the recipe significantly relates to the likelihood of a rating being missing.
+Since the p-value that we found (0.0) is smaller than 0.05, which is the significance level we set, we reject the null hypothesis. Therefore, the missingness of the `'rating'` depends on the `'sodium(PDV)'` column, meaning that the sodium content of the recipe significantly relates to the likelihood of a rating being missing.
 
 
 ---
