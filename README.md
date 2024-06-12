@@ -76,7 +76,7 @@ Shown below is the names of the columns that are relevant to our question and th
   **Transform each recipe's nutrion into fraction:** total fat(PDV) * 65 * 9; protein(PDV) * 55 * 4; carbohydrates(pdv) * 300 * 4 (since other nutrient does not take into account of calorie calculations, we also ignore them in the index calculation)  
   **The balanced fraction we get from the reference:** total fat: 0.3; protein: 0.3; carbonhydrates: 0.4  
   **The formula for calculating the distance:** (sum(recipe - balanced) ** 2 / 3) ** (1 / 2) * 100
-  - We add this new column because we believe that recipes with lower index (more healthier) are typically more kid-friendly. This column gives us another indicator to compare the kid-friendly recipes with not kid-friendly recipes.    
+  - We add this new column because we believe that recipes with lower index (balanced, more healthier) are typically more kid-friendly. This column gives us another indicator to compare the kid-friendly recipes with not kid-friendly recipes.    
 
 
 11. Selecting the final columns we need for the future analysis by dropping redundant or useless columns
