@@ -149,7 +149,7 @@ Since the p-value that we found (0.086) is greater than 0.05, which is the signi
 
 #### Dependency on `'sodium(PDV)'`
 
-The distribution of `'sodium(PDV)'` when `'rating'` is missing and the distribution of `'sodium(PDV)'` when `'rating'` is not missing.
+The distribution of `'sodium(PDV)'` when `'rating'` is missing and the distribution of `'sodium(PDV)'` when `'rating'` is not missing. We specifically rescaled the plot in the report to help readers more easily identify the differences in distribution.
 
 <iframe src="assets/missingso.html" width="650" height="450" frameborder="0"></iframe>
 
