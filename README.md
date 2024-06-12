@@ -100,7 +100,8 @@ For this analysis, we examined the distribution of sodium(PDV) values across rec
   width="800"
   height="600"
   frameborder="0"
-></iframe>  
+  style="margin-bottom: 0; padding-bottom: 0;"
+></iframe>
 
 ### Bivariate Analyses 
 For this analysis, we examined the distribution of sodium(PDV) values conditioned on whether the item is labeled for kids (True) or not (False). Both distributions are right-skewed, but items labeled for kids generally have lower sodium values compared to those not labeled for kids. This indicates that food items intended for children tend to contain less sodium. We will further analyze whether this difference is significant in later sections. 
@@ -109,7 +110,8 @@ For this analysis, we examined the distribution of sodium(PDV) values conditione
   width="800"
   height="600"
   frameborder="0"
-></iframe>  
+  style="margin-bottom: 0; padding-bottom: 0;"
+></iframe>
 
 ### Interesting Aggregates
 In this section, we investigate the relationship between whether the recipe is kid-friendly and other columns we believe are relavent in the dataframe, including `'sodium(PDV)'`, `'minutes'`, `'n_steps'`, `'n_ingredients'`, `'is_free'`, and `'rating'`. We group by the is_kid label and aggregate the mean of each columns.
