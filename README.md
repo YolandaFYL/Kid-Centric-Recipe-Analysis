@@ -145,7 +145,7 @@ The empirical distribution of the TVD, along with the observed statistic of 0.00
 
 <iframe src="assets/missingk.html" width="850" height="650" frameborder="0"></iframe>
 
-Since the p-value that we found (0.086) is greater than 0.05, which is the significance level we set, we fail to reject the null hypothesis. Therefore, the missingness of the `'rating'` does not depend on the `'is_kid'` column, meaning that whether the recipe is labeled as kid-friendly does not significantly relate to the likelihood of a rating being missing.
+Since the p-value that we found (0.086) is greater than 0.05, which is the significance level we set, we **fail to reject the null hypothesis**. Therefore, the missingness of the `'rating'` does not depend on the `'is_kid'` column, meaning that whether the recipe is labeled as kid-friendly does not significantly relate to the likelihood of a rating being missing.
 
 #### Dependency on `'sodium(PDV)'`
 
@@ -162,7 +162,7 @@ The empirical distribution of the K-S statistic, along with the observed statist
 
 <iframe src="assets/missings.html" width="850" height="650" frameborder="0"></iframe>
 
-Since the p-value that we found (0.0) is smaller than 0.05, which is the significance level we set, we reject the null hypothesis. Therefore, the missingness of the `'rating'` depends on the `'sodium(PDV)'` column, meaning that the sodium content of the recipe significantly relates to the likelihood of a rating being missing.
+Since the p-value that we found (0.0) is smaller than 0.05, which is the significance level we set, we **reject the null hypothesis**. Therefore, the missingness of the `'rating'` depends on the `'sodium(PDV)'` column, meaning that the sodium content of the recipe significantly relates to the likelihood of a rating being missing.
 
 
 ---
@@ -185,7 +185,7 @@ Then we shuffle the `'is_kid'` column for 1000 repetitions, collected the mean d
 <iframe src="assets/ht.html" width="850" height="650" frameborder="0"></iframe>
 
 ### Conclusion of the hypothesis testing
-After calculating the `p-value` **(0.0)**, we find that it is smaller than our significant level 0.05, thus we **reject the null hypothesis**. This suggests that the sodium(PDV) level of kid-friendly recipes is significantly lower than the sodium(PDV) level of recipes without a kid-friendly label.
+After calculating the `p-value` (0.0), we find that it is smaller than our significant level 0.05, thus we **reject the null hypothesis**. This suggests that the sodium(PDV) level of kid-friendly recipes is significantly lower than the sodium(PDV) level of recipes without a kid-friendly label.
 
 ---
 ## Framing a Prediction Problem
