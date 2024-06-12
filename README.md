@@ -1,6 +1,8 @@
-For DSC 80 Final Project: The Data Science Lifecycle  
+# Kid-Centric Recipe Analysis  
 
-By Rita Yujia Wu (*yuw172@ucsd.edu*) & Yolanda Feng (*yuf019@ucsd.edu*)
+By Rita Yujia Wu (*yuw172@ucsd.edu*) & Yolanda Feng (*yuf019@ucsd.edu*)  
+
+For the DSC 80 Final Project, The Data Science Lifecycle, this project focuses on exploring the features of a recipe that make it kid-friendly.
 
 ---
 
