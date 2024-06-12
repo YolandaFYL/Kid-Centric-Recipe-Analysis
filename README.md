@@ -1,4 +1,4 @@
-For DSC 80 Final Project: The Data Science Lifecycle
+For DSC 80 Final Project: The Data Science Lifecycle \n
 By Rita Yujia Wu (yuw172@ucsd.edu) & Yolanda Feng (yuf019@ucsd.edu)
 
 ---
