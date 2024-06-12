@@ -128,9 +128,9 @@ To better understand and capture the users' satisfaction levels, we can introduc
 
 ### Missingness Dependency
 
-In this section, we examine the missingness dependency of the `rating` column. We are investigating whether the missingness in the `rating` column depends on the `is_kid` column, which is a boolean column checking whether the tags of recipes contain kid-friendly tags, or the `sodium(PDV)` column, which represents the sodium percentage of the daily value level of the recipe.
+In this section, we examine the missingness dependency of the `'rating'` column. We are investigating whether the missingness in the `'rating'` column depends on the `'is_kid'` column, which is a boolean column checking whether the tags of recipes contain kid-friendly tags, or the `'sodium(PDV)'` column, which represents the sodium percentage of the daily value level of the recipe.
 
-#### Dependency on `is_kid`
+#### Dependency on `'is_kid'`
 
 - **Null Hypothesis:** The missingness of ratings does not depend on whether the recipe is labeled as kid-friendly.
 - **Alternate Hypothesis:** The missingness of ratings does depend on whether the recipe is labeled as kid-friendly.
@@ -139,7 +139,7 @@ In this section, we examine the missingness dependency of the `rating` column. W
 
 <iframe src="assets/missingk.html" width="800" height="600" frameborder="0"></iframe>
 
-#### Dependency on `sodium(PDV)`
+#### Dependency on `'sodium(PDV)'`
 
 - **Null Hypothesis:** The missingness of ratings does not depend on the sodium (PDV) level of the recipe.
 - **Alternate Hypothesis:** The missingness of ratings does depend on the sodium (PDV) level of the recipe.
