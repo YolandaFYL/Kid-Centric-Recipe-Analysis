@@ -48,27 +48,27 @@ Shown below is the names of the columns that are relevant to our question and th
   - The information in 'tags' column was also initially in the form of 'faked' list, where each of them is a string that looks like a list format. Therefore, to clean the data in the column for further catogorizing the recipe, we find all the tags as word strings using regular expression and place them in a list for each recipe.
 
 6. Dealing with outliers of the 'minutes' column (we consider minutes > 4320 as outliers) and the 'nutrition' column (we consider calories == 0 as outliers) by dropping the corresponding rows.
-  - After exploring the data and search for the exact recipe on the website, we found that some recipes have irrgular cost time, which lead to a very huge number in the 'minutes' column. Therefore, to perform a fair and general calculation, we look at the distribution of the minutes and conclude that the recipes with minutes more than 4320 are outliers. Also, we found a very small amount of recipes whose calories in the 'nutrition' column to be 0. Since we are considering the healthiness of a recipe based on calories, we treat these recipes as outliers. We finally deal with the outliers in these two columns by dropping the corresponding rows.
+  - After exploring the data and search for the exact recipe on the website, we found that some recipes have irrgular cost time, which lead to a very huge number in the 'minutes' column. Therefore, to perform a fair and general calculation, we look at the distribution of the minutes and conclude that the recipes with minutes more than 4320 are outliers. Also, we found a very small amount of recipes whose calories in the 'nutrition' column to be 0. Since we are considering the healthiness of a recipe based on calories, we treat these recipes as outliers. We finally deal with the outliers in these two columns by dropping the corresponding rows.  
 
-7. Adding a new boolean column (`is_kid`) indicating whether the recipe contains kid-friendly tags
-  -  `is_kid` is a boolean column checking whether the tags of recipes contain 'kid-friendly'. This step separates the the recipes into two groups, where True group contains recipes that are kid-friendly and False group contains not labelled kid-friendly. This is our main focus in this project.
+7. Adding a new boolean column (`'is_kid'`) indicating whether the recipe contains kid-friendly tags
+  -  `'is_kid'` is a boolean column checking whether the tags of recipes contain 'kid-friendly'. This step separates the the recipes into two groups, where True group contains recipes that are kid-friendly and False group contains not labelled kid-friendly. This is our main focus in this project.  
 
-8. Adding a new float column(`sodium(PDV)`) indicating the sodium(PDV) level of the recipe
-  - `sodium(PDV)` is a float column containing the sodium PDV level in percentage of each recipe. We add this new column because we believe that recipes with lower sodium(PDV) level typically are more kid-friendly. This column gives us an indicator to compare the kid-friendly recipes with not kid-friendly recipes.
+8. Adding a new float column(`'sodium(PDV)'`) indicating the sodium(PDV) level of the recipe
+  - `'sodium(PDV)'` is a float column containing the sodium PDV level in percentage of each recipe. We add this new column because we believe that recipes with lower sodium(PDV) level typically are more kid-friendly. This column gives us an indicator to compare the kid-friendly recipes with not kid-friendly recipes.  
 
-9. Adding a new boolean column (`has_vegfruit`) indicating whether the recipe contains fruit or vegetables
-  - `has_vegfruit` is a boolean column chekcing whether the tags of recipes contain 'vegetable' or 'fruit'. We add this new column because we believe that recipes with vegetable or fruit tags are typically more kid-friendly. This column gives us another indicator to compare the kid-friendly recipes with not kid-friendly recipes.
+9. Adding a new boolean column (`'has_vegfruit'`) indicating whether the recipe contains fruit or vegetables
+  - `'has_vegfruit'` is a boolean column chekcing whether the tags of recipes contain 'vegetable' or 'fruit'. We add this new column because we believe that recipes with vegetable or fruit tags are typically more kid-friendly. This column gives us another indicator to compare the kid-friendly recipes with not kid-friendly recipes.  
 
-10. Creating and calculating a comprehensive index for the 'nutrition' column based on [This Reference](https://health.gov/sites/default/files/2020-01/1995%20Dietary%20Guidelines%20for%20Americans.pdf). Adding a new float column (`nutrition_idx`) containing the nutrition index calculated.
-  - `nutrition_idx` is a float column containing a calculated index for each recipe where lower index value means a relatively healthier recipe and vice versa. We perform the calculation by first turning the PDV back into the real consuming value through multiply the suggested daily value, then we divide by the total calories to get a fraction. Then, we calculate the distance between each recipe's fraction and the suggested fraction of each nutrient in the reference. 
-  - Here is the value we use for calculation: 
-  **Transform each recipe's nutrion into fraction:** total fat(pdv) * 65 * 9; protein(pdv) * 55 * 4; carbohydrates(pdv) * 300 * 4 (since other nutrient does not take into account of calorie calculations, we also ignore them in the index calculation)
-  **The balanced fraction we get from the reference:** total fat: 0.3; protein: 0.3; carbonhydrates: 0.4
+10. Creating and calculating a comprehensive index for the 'nutrition' column based on [This Reference](https://health.gov/sites/default/files/2020-01/1995%20Dietary%20Guidelines%20for%20Americans.pdf). Adding a new float column (`'nutrition_idx'`) containing the nutrition index calculated.
+  - `'nutrition_idx'` is a float column containing a calculated index for each recipe where lower index value means a relatively healthier recipe and vice versa. We perform the calculation by first turning the PDV back into the real consuming value through multiply the suggested daily value, then we divide by the total calories to get a fraction. Then, we calculate the distance between each recipe's fraction and the suggested fraction of each nutrient in the reference. 
+  - Here is the value we use for calculation:  
+  **Transform each recipe's nutrion into fraction:** total fat(pdv) * 65 * 9; protein(pdv) * 55 * 4; carbohydrates(pdv) * 300 * 4 (since other nutrient does not take into account of calorie calculations, we also ignore them in the index calculation)  
+  **The balanced fraction we get from the reference:** total fat: 0.3; protein: 0.3; carbonhydrates: 0.4  
   **The formula for calculating the distance:** (sum(recipe - balanced) ** 2 / 3) ** (1 / 2) * 100
-  - We add this new column because we believe that recipes with lower index (more healthier) are typically more kid-friendly. This column gives us another indicator to compare the kid-friendly recipes with not kid-friendly recipes.
+  - We add this new column because we believe that recipes with lower index (more healthier) are typically more kid-friendly. This column gives us another indicator to compare the kid-friendly recipes with not kid-friendly recipes.  
 
 11. Selecting the final columns we need for the future analysis by dropping redundant or useless columns
-  - By dropping other useless and redundant columns, we reduce the size of the dataframe, making our future testing and modeling quicker.
+  - By dropping other useless and redundant columns, we reduce the size of the dataframe, making our future testing and modeling quicker.  
 
 Our cleaned dataframe has 233867 rows and 11 columns. Below are the first 5 rows of our final cleaned dataframe.
 
