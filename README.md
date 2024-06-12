@@ -132,6 +132,8 @@ In this section, we examine the missingness dependency of the `'rating'` column.
 
 #### Dependency on `'is_kid'`
 
+<iframe src="assets/missingko.html" width="850" height="650" frameborder="0"></iframe>
+
 - **Null Hypothesis:** The missingness of ratings does not depend on whether the recipe is labeled as kid-friendly.
 - **Alternate Hypothesis:** The missingness of ratings does depend on whether the recipe is labeled as kid-friendly.
 - **Test Statistic:** The Total Variation Distance (TVD) in whether the recipe is labeled as kid-friendly between the group with missing ratings and the group without missing ratings.
@@ -142,6 +144,8 @@ In this section, we examine the missingness dependency of the `'rating'` column.
 The observed statistic of 0.0044 is indicated by the red vertical line on the graph. Since the p-value that we found (0.086) is greater than 0.05, which is the significance level we set, we fail to reject the null hypothesis. Therefore, the missingness of the `'rating'` does not depend on the `'is_kid'` column, meaning that whether the recipe is labeled as kid-friendly does not significantly relate to the likelihood of a rating being missing.
 
 #### Dependency on `'sodium(PDV)'`
+
+<iframe src="assets/missingso.html" width="850" height="650" frameborder="0"></iframe>
 
 - **Null Hypothesis:** The missingness of ratings does not depend on the sodium (PDV) level of the recipe.
 - **Alternate Hypothesis:** The missingness of ratings does depend on the sodium (PDV) level of the recipe.
