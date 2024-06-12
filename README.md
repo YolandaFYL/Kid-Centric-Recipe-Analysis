@@ -95,13 +95,13 @@ Our cleaned dataframe has 233867 rows and 11 columns. Below are the first 5 rows
 
 ### Univariate Analyses
 
-<iframe src="assets/uni.html" width="1000" height="600" frameborder="0"></iframe>
+<iframe src="assets/uni.html" width="600" height="400" frameborder="0"></iframe>
 
 For this analysis, we examined the distribution of sodium(PDV) values across recipes. It shows a heavily right-skewed distribution, with the majority of the data concentrated at lower sodium values and a long tail extending to higher values. This decreasing trend also suggests that as the sodium level increases, there are less recipes on our website.
 
 ### Bivariate Analyses 
 
-<iframe src="assets/bi.html" width="1000" height="600" frameborder="0"></iframe>
+<iframe src="assets/bi.html" width="600" height="400" frameborder="0"></iframe>
 
 For this analysis, we examined the distribution of sodium(PDV) values conditioned on whether the item is labeled for kids (True) or not (False). Both distributions are right-skewed, but items labeled for kids generally have lower sodium values compared to those not labeled for kids. This indicates that food items intended for children tend to contain less sodium. We will further analyze whether this difference is significant in later sections. 
 
