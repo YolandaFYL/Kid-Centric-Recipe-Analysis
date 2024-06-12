@@ -7,9 +7,10 @@ This is a data science project for the DSC 80 Final Project, The Data Science Li
 ---
 ## Introduction
 
+### Background Information & Project Topic
 Good nutrition for kids is essential for their growth, development, and long-term health. A balanced diet ensures that children receive the necessary nutrients to strengthen their immune systems, support cognitive development, and build strong bones and muscles. Proper nutrition also helps prevent childhood obesity, which has tripled in the United States since the 1970s and is linked to serious health issues like type 2 diabetes and heart disease. Additionally, instilling healthy eating habits early on not only promotes immediate well-being but also helps establish routines and habits that contribute to their overall quality of life as they grow.
 
-With this information in mind, our project aims to investigate the features of recipes that make them kid-friendly. By doing so, we hope to provide valuable insights for caregivers to better support children's nutritional needs. To achieve this, we are analyzing two datasets consisting of recipes and ratings posted since 2008 on food.com. These datasets were originally compiled for the recommender system research paper, "Generating Personalized Recipes from Historical User Preferences" by Majumder et al.
+With this information in mind, our project aims to **investigate the features of recipes that make them kid-friendly**. By doing so, we hope to provide valuable insights for caregivers to better support children's nutritional needs. To achieve this, we are analyzing two datasets consisting of recipes and ratings posted since 2008 on food.com. These datasets were originally compiled for the recommender system research paper, "Generating Personalized Recipes from Historical User Preferences" by Majumder et al.
 
 ### Dataset Overview
 #### 	Recipe Dataset
@@ -43,6 +44,7 @@ With this information in mind, our project aims to investigate the features of r
 | `rating`  | Rating given          |
 | `review`  | Review text           |
 ---
+
 ## Data Cleaning and Exploratory Data Analysis
 ### Cleaned data
 ### Performed univariate analyses
