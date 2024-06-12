@@ -1,4 +1,6 @@
 # Kid-Centric Recipe Analysis
+
+By Rita Yujia Wu (yuw172@ucsd.edu) & Yolanda Feng (yuf019@ucsd.edu)
 ---
 
 ## Introduction
