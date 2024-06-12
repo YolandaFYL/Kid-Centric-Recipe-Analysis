@@ -67,7 +67,7 @@ Below are the first few rows of our final cleaned dataframe.
 ### Univariate Analyses
 
 <iframe
-  src="/assets/uni.html"
+  src="assets/uni.html"
   width="800"
   height="600"
   frameborder="0"
@@ -76,13 +76,14 @@ Below are the first few rows of our final cleaned dataframe.
 ### Bivariate Analyses 
 
 <iframe
-  src="/assets/bi.html"
+  src="assets/bi.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
 
 ### Interesting Aggregates
+
 |   sodium(PDV) |   minutes |   n_steps |   n_ingredients |   is_free |   rating |
 |--------------:|----------:|----------:|----------------:|----------:|---------:|
 |       28.6239 |   70.4862 |  10.0143  |         9.15846 | 0.0593935 |  4.68081 |
@@ -96,14 +97,14 @@ Below are the first few rows of our final cleaned dataframe.
 ### Missingness Dependency
 
 <iframe
-  src="/assets/missingk.html"
+  src="assets/missingk.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
 
 <iframe
-  src="/assets/missings.html"
+  src="assets/missings.html"
   width="800"
   height="600"
   frameborder="0"
@@ -113,7 +114,7 @@ Below are the first few rows of our final cleaned dataframe.
 ## Hypothesis Testing
 
 <iframe
-  src="/assets/ht.html"
+  src="assets/ht.html"
   width="800"
   height="600"
   frameborder="0"
@@ -136,7 +137,7 @@ Below are the first few rows of our final cleaned dataframe.
 |   0.944421 |
 
 <iframe
-  src="/assets/fairp.html"
+  src="assets/fairp.html"
   width="800"
   height="600"
   frameborder="0"
