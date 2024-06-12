@@ -43,6 +43,7 @@ With this information in mind, our project aims to **investigate the features of
 | `date`    | Date of interaction   |
 | `rating`  | Rating given          |
 | `review`  | Review text           |
+
 ---
 
 ## Data Cleaning and Exploratory Data Analysis
