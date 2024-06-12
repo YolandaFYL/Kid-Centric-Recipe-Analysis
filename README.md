@@ -83,7 +83,7 @@ Shown below is the names of the columns that are relevant to our question and th
   - By dropping other useless and redundant columns, we reduce the size of the dataframe, making our future testing and modeling quicker.    
   
 ### Result
-Our cleaned dataframe has 233867 rows and 11 columns. Below are the first 5 rows of our final cleaned dataframe.
+Our cleaned dataframe has 233,867 rows and 11 columns. Below are the first 5 rows of our final cleaned dataframe.
 
 |    | name                                 |   minutes |   n_steps |   n_ingredients |   rating |   avr_rating | is_kid   |   sodium(PDV) | is_free   | has_vegfruit   |   nutrition_idx |
 |---:|:-------------------------------------|----------:|----------:|----------------:|---------:|-------------:|:---------|--------------:|:----------|:---------------|----------------:|
@@ -173,6 +173,13 @@ Since the p-value that we found (0.0) is smaller than 0.05, which is the signifi
 ---
 ## Framing a Prediction Problem
 
+We plan to predict whether a recipe is kid-friendly, which would be a binary classification problem. The response variable we chose is `'is_kid'`, the binary boolean value indicating whether the recipe is labeled as kid-friendly by the contributor. To build this classifier, our features come from our cleaned dataset, including `'minutes'`, `'n_steps'`, `'sodium(PDV)'`, `'is_free'`, `'has_vegfruit'`, and `'nutrition_idx'`.
+
+The metric we are using to evaluate our model is the F-1 score. We believe the F-1 score is the optimal metric for us for the following reasons:
+
+1. **Unbalanced Data:** Our dataset is unbalanced. Out of all 233,867 rows, only 26,100 rows, around 10%, evaluate to `True` for `is_kid`. This imbalance makes accuracy an unsuitable evaluation metric for our model, as it could be misleading.
+
+2. **Precision and Recall:** Both variety and healthiness are important in building good eating habits for children. Therefore, we care about both the precision and recall levels of our model. The F-1 score, which is the harmonic mean of precision and recall, provides a balanced measure of these two metrics, ensuring our model gives the best prediction of a large variety of actually healthy recipes that are easy to prepare for kids.
 ---
 ## Baseline Model
 
