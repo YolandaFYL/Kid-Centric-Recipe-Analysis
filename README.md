@@ -30,18 +30,32 @@ To facilitate the investigation of our question, we examined both datasets and c
 ## Data Cleaning and Exploratory Data Analysis
 
 ### Data Cleaning
-We conducted the following data cleaning steps for our data analysis process.
 1. Left merge the recipes and interactions datasets together.
 
 2. In the merged dataset, fill all ratings of 0 with np.nan.
 
-3. Find the average rating per recipe, as a Series. Add this Series containing the average rating per recipe back to the recipes dataset.
+3. Find the average rating per recipe, as a Series. Add this Series containing the average rating per recipe to the merged dataset.
 
-4.
-5.
-6.
-7.
-8.
+4. Clean and change the data in the 'nutrition' column to dictionary type.
+
+5. Clean and isolating the strings in 'tags', 'steps', and 'ingredients' columns into words in list.
+
+6. Dealing with outliers of the 'minutes' column (we consider minutes > 4320 as outliers) and the 'nutrition' column (we consider calories == 0 as outliers) by dropping the corresponding rows.
+
+7. Adding a new boolean column ('is_kid') indicating whether the recipe contains kid-friendly tags
+
+8. Adding a new float column('sodium(PDV)') indicating the sodium(PDV) level of the recipe
+
+9. Adding a new boolean column ('has_vegfruit') indicating whether the recipe contains fruit or vegetables
+
+10. Creating and calculating a comprehensive index for the 'nutrition' column where lower index value means a relatively healthier recipe based on [This Reference](https://health.gov/sites/default/files/2020-01/1995%20Dietary%20Guidelines%20for%20Americans.pdf)
+
+11. Adding a new float column containing the nutrition index calculated.
+
+12. Selecting the final columns we need for the future analysis by dropping redundant or useless columns
+
+Below are the first few rows of our final cleaned dataframe.
+
 | name                                 |   minutes |   n_steps |   rating |   avr_rating | is_kid   |   sodium(PDV) | is_free   | has_vegfruit   |   nutrition_idx |
 |:-------------------------------------|----------:|----------:|---------:|-------------:|:---------|--------------:|:----------|:---------------|----------------:|
 | 1 brownies in the world    best ever |        40 |        10 |        4 |            4 | False    |             3 | False     | False          |        0.542309 |
