@@ -76,7 +76,7 @@ Shown below is the names of the columns that are relevant to our question and th
   **Transform each recipe's nutrion into fraction:** total fat(PDV) * 65 * 9; protein(PDV) * 55 * 4; carbohydrates(pdv) * 300 * 4 (since other nutrient does not take into account of calorie calculations, we also ignore them in the index calculation)  
   **The balanced fraction we get from the reference:** total fat: 0.3; protein: 0.3; carbonhydrates: 0.4  
   **The formula for calculating the distance:** (sum(recipe - balanced) ** 2 / 3) ** (1 / 2) * 100
-  - We add this new column because we believe that recipes with lower index (more healthier) are typically more kid-friendly. This column gives us another indicator to compare the kid-friendly recipes with not kid-friendly recipes.    
+  - We add this new column because we believe that recipes with lower index (more balanced, healthier) are typically more kid-friendly. This column gives us another indicator to compare the kid-friendly recipes with not kid-friendly recipes.    
 
 
 11. Selecting the final columns we need for the future analysis by dropping redundant or useless columns
@@ -136,19 +136,36 @@ To better understand and capture the users' satisfaction levels, we can introduc
 
 ### Missingness Dependency
 
-<iframe
-  src="assets/missingk.html"
-  width="800"
-  height="600"
-  frameborder="0"
+In this section, we examine the missingness dependency of the `rating` column. We are investigating whether the missingness in the `rating` column depends on the `is_kid` column, which is a boolean column checking whether the tags of recipes contain kid-friendly tags, or the `sodium(PDV)` column, which represents the sodium percentage of the daily value level of the recipe.
+
+#### Dependency on `is_kid`
+
+- **Null Hypothesis:** The missingness of ratings does not depend on whether the recipe is labeled as kid-friendly.
+- **Alternate Hypothesis:** The missingness of ratings does depend on whether the recipe is labeled as kid-friendly.
+- **Test Statistic:** The Total Variation Distance (TVD) in whether the recipe is labeled as kid-friendly between the group with missing ratings and the group without missing ratings.
+- **Significance Level:** 0.05
+
+<iframe 
+src="assets/missingk.html" 
+width="800" 
+height="600" 
+frameborder="0"
 ></iframe>
 
-<iframe
-  src="assets/missings.html"
-  width="800"
-  height="600"
-  frameborder="0"
+#### Dependency on `sodium(PDV)`
+
+- **Null Hypothesis:** The missingness of ratings does not depend on the sodium (PDV) level of the recipe.
+- **Alternate Hypothesis:** The missingness of ratings does depend on the sodium (PDV) level of the recipe.
+- **Test Statistic:** The Kolmogorov–Smirnov (K-S) statistic in the sodium (PDV) level distribution between the group with missing ratings and the group without missing ratings.
+- **Significance Level:** 0.05
+
+<iframe 
+src="assets/missings.html" 
+width="800" 
+height="600" 
+frameborder="0"
 ></iframe>
+
 
 ---
 ## Hypothesis Testing
