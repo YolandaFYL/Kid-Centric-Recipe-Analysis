@@ -167,8 +167,25 @@ Since the p-value that we found (0.0) is smaller than 0.05, which is the signifi
 
 ---
 ## Hypothesis Testing
+As mentioned in the introduction, we are curious about what features of recipes make them kid-friendly. Through exploratory data analysis, we found that the sodium(PDV) level is generally lower for kid-friendly recipes (`'is_kid' == True`) and higher for not kid-friendly recipes (`'is_kid' == False`). Therefore, in this part, we would like to see whether this difference in sodium(PDV) level is significant.  
+  
+To investigate the question, we ran a **permutation test** with the following hypotheses, test statistic, and significance level.  
+  
+- **Null Hypothesis**: The distribution of sodium(PDV) level of kid-friendly recipes and the distribution of sodium(PDV) level of not labeled kid-friendly recipes are the same, and any differences are due to chance.
+- **Alternative Hypothesis**: The sodium(PDV) level of kid-friendly recipes is significantly lower than the sodium(PDV) level of recipes without a kid-friendly label.
+- **Test statistic**: Difference in mean
+- **Significance level**: 0.05  
+  
+The reason we choose to run a permutation test is because we do not know the overall distribution of the population, but we still would like to know whether the two distributions come from a same population distribution. We choose difference in mean rather than absolute difference in mean as our test statistic is because our alternative hypothesis is directional (suggesting sodium(PDV) level is lower for kid-friendly recipes). By investigating the difference in mean, we could see whether kid-friendly recepies yield a lower sodium(PDV) level, which answers our question.
+
+To run the permutation test, we first seperate the data points by split them into two groups (`'is_kid' == True` and `'is_kid' == False`). Based on this, we calculat our observed statistic by subtracting the mean of sodium(PDV) value of the `'is_kid' == True` from the `'is_kid' == False` group. This value `obs` is equal to `4.84`.  
+  
+Then we shuffle the `'is_kid'` column for 1000 repetitions, collected the mean differences, and calculate the p-value. Our `p-value` is equal to `0.0`
 
 <iframe src="assets/ht.html" width="850" height="650" frameborder="0"></iframe>
+
+### Conclusion of the hypothesis testing
+After calculating the `p-value` **(0.0)**, we find that it is smaller than our significant level 0.05, thus we **reject the null hypothesis**. This suggests that the sodium(PDV) level of kid-friendly recipes is significantly lower than the sodium(PDV) level of recipes without a kid-friendly label.
 
 ---
 ## Framing a Prediction Problem
