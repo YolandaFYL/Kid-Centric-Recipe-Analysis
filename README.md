@@ -9,7 +9,6 @@ This is a data science project for the DSC 80 Final Project, The Data Science Li
 
 ### Dataset Overview
 #### Recipe Dataset
-
 - **Rows**: 83,782
 - **Columns**: 10
 
@@ -29,7 +28,6 @@ This is a data science project for the DSC 80 Final Project, The Data Science Li
 | `n_ingredients` | Number of ingredients in the recipe                                                                                 |
 
 #### Interactions Dataset
-
 - **Rows**: 731,927
 - **Columns**: 5
 
