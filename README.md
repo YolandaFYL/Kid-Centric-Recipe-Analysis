@@ -180,6 +180,7 @@ The metric we are using to evaluate our model is the F-1 score. We believe the F
 1. **Unbalanced Data:** Our dataset is unbalanced. Out of all 233,867 rows, only 26,100 rows, around 10%, evaluate to `True` for `is_kid`. This imbalance makes accuracy an unsuitable evaluation metric for our model, as it could be misleading.
 
 2. **Precision and Recall:** Both variety and healthiness are important in building good eating habits for children. Therefore, we care about both the precision and recall levels of our model. The F-1 score, which is the harmonic mean of precision and recall, provides a balanced measure of these two metrics, ensuring our model gives the best prediction of a large variety of actually healthy recipes that are suitable for preparing for kids.
+
 ---
 ## Baseline Model
 
