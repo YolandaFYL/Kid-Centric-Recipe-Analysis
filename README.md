@@ -16,16 +16,18 @@ To facilitate the investigation of our question, we examined both datasets and c
 Shown below is the names of the columns that are relevant to our question and the description of the relevant columns.
 
 
-| Column      | Description                                                                                                           |
-|-------------|-----------------------------------------------------------------------------------------------------------------------|
-| `name`      | Recipe name (*Recipe Dataset*, *Interactions Dataset*)                                                                                                         |
-| `id` | Recipe ID (*Recipe Dataset*)                                                                                                           |
-| `minutes`   | Minutes to prepare the recipe (*Recipe Dataset*)                                                                                        |
-| `tags`      | Food.com tags for the recipe (*Recipe Dataset*)                                                                                          |
-| `nutrition` | Nutrition information in the form [calories (#), total fat (PDV), sugar (PDV), sodium (PDV), protein (PDV), saturated fat (PDV), carbohydrates (PDV)]; PDV stands for "percentage of daily value" (*Recipe Dataset*) |
-| `n_steps`   | Number of steps in the recipe (*Recipe Dataset*)                                                                                        |
-| `recipe_id` | Recipe ID (*Interactions Dataset*)                                                                                                           |
-| `rating`    | Rating given (*Interactions Dataset*)                                                                                                         |
+| Column      | Description                                                                                                                                                                                |
+|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`      | Recipe name (*Recipe Dataset*), used for identifying the recipe on the website.                                                                                                             |
+| `id`        | Recipe ID (*Recipe Dataset*), utilized for merging the Recipe Dataset with other datasets, such as the Interactions Dataset.                                                                 |
+| `minutes`   | Total time in minutes required to prepare the recipe (*Recipe Dataset*), included for time-based analysis of recipe preparation.                                                             |
+| `tags`      | Food.com tags for the recipe (*Recipe Dataset*), applied in the analysis to derive categorical features of a recipe, aiding in classification and clustering tasks.                         |
+| `nutrition` | Nutritional information presented as [calories (#), total fat (PDV), sugar (PDV), sodium (PDV), protein (PDV), saturated fat (PDV), carbohydrates (PDV)]; PDV stands for "percentage of daily value" (*Recipe Dataset*), essential for nutritional analysis. |
+| `n_steps`   | The number of steps involved in the recipe (*Recipe Dataset*), used to assess recipe complexity and its potential impact on user engagement and recipe ratings.                             |
+| `recipe_id` | Recipe ID from the *Interactions Dataset*, crucial for merging with the Recipe Dataset to link user interactions, such as ratings, with specific recipes.                                     |
+| `rating`    | The rating given to a recipe (*Interactions Dataset*), used in analyzing user satisfaction and preferences towards different recipes.                                                        |
+
+These columns form the foundation of the analysis, enabling the examination of preparation time, nutritional content, recipe complexity, and user ratings to guide the selection of healthy recipes for kids.
 
 ---
 
