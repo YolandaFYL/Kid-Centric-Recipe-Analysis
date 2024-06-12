@@ -81,5 +81,9 @@ We conducted the following data cleaning steps for our data analysis process.
 
 ---
 ## Fairness Analysis
+|   accuracy |
+|-----------:|
+|   0.952333 |
+|   0.944421 |
 
 ---
