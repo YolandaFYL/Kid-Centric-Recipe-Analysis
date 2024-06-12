@@ -15,13 +15,13 @@ To facilitate the investigation of our question, we examined both datasets and c
 
 | Column      | Description                                                                                                           |
 |-------------|-----------------------------------------------------------------------------------------------------------------------|
-| `name`      | Recipe name *Recipe Dataset* *Interactions Dataset*                                                                                                         |
-| `minutes`   | Minutes to prepare the recipe *Recipe Dataset*                                                                                        |
-| `tags`      | Food.com tags for the recipe *Recipe Dataset*                                                                                          |
-| `nutrition` | Nutrition information in the form [calories (#), total fat (PDV), sugar (PDV), sodium (PDV), protein (PDV), saturated fat (PDV), carbohydrates (PDV)]; PDV stands for "percentage of daily value" *Recipe Dataset* |
-| `n_steps`   | Number of steps in the recipe *Recipe Dataset*                                                                                        |
-| `recipe_id` | Recipe ID *Recipe Dataset* *Interactions Dataset*                                                                                                           |
-| `rating`    | Rating given *Interactions Dataset*                                                                                                         |
+| `name`      | Recipe name (*Recipe Dataset* *Interactions Dataset*)                                                                                                         |
+| `minutes`   | Minutes to prepare the recipe (*Recipe Dataset*)                                                                                        |
+| `tags`      | Food.com tags for the recipe (*Recipe Dataset*)                                                                                          |
+| `nutrition` | Nutrition information in the form [calories (#), total fat (PDV), sugar (PDV), sodium (PDV), protein (PDV), saturated fat (PDV), carbohydrates (PDV)]; PDV stands for "percentage of daily value" (*Recipe Dataset*) |
+| `n_steps`   | Number of steps in the recipe (*Recipe Dataset*)                                                                                        |
+| `recipe_id` | Recipe ID (*Recipe Dataset* *Interactions Dataset*)                                                                                                           |
+| `rating`    | Rating given (*Interactions Dataset*)                                                                                                         |
 
 ---
 
