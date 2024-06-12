@@ -51,6 +51,7 @@ We conducted the following data cleaning steps for our data analysis process.
 | 412 broccoli casserole               |        40 |         6 |        5 |            5 | False    |            32 | False     | True           |        1.95611  |
 
 ### Univariate Analyses
+
 <iframe
   src="assets/uni.html"
   width="800"
@@ -59,6 +60,7 @@ We conducted the following data cleaning steps for our data analysis process.
 ></iframe>
 
 ### Bivariate Analyses 
+
 <iframe
   src="assets/bi.html"
   width="800"
@@ -78,12 +80,14 @@ We conducted the following data cleaning steps for our data analysis process.
 ### NMAR Analysis
 
 ### Missingness Dependency
+
 <iframe
   src="assets/missingk.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
+
 <iframe
   src="assets/missings.html"
   width="800"
@@ -93,6 +97,7 @@ We conducted the following data cleaning steps for our data analysis process.
 
 ---
 ## Hypothesis Testing
+
 <iframe
   src="assets/ht.html"
   width="800"
@@ -115,6 +120,7 @@ We conducted the following data cleaning steps for our data analysis process.
 |-----------:|
 |   0.952333 |
 |   0.944421 |
+
 <iframe
   src="assets/fairp.html"
   width="800"
