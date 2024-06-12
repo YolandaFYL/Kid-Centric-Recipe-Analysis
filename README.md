@@ -56,13 +56,13 @@ To facilitate the investigation of our question, we examined both datasets and c
 
 Below are the first few rows of our final cleaned dataframe.
 
-| name                                 |   minutes |   n_steps |   rating |   avr_rating | is_kid   |   sodium(PDV) | is_free   | has_vegfruit   |   nutrition_idx |
-|:-------------------------------------|----------:|----------:|---------:|-------------:|:---------|--------------:|:----------|:---------------|----------------:|
-| 1 brownies in the world    best ever |        40 |        10 |        4 |            4 | False    |             3 | False     | False          |        0.542309 |
-| 1 in canada chocolate chip cookies   |        45 |        12 |        5 |            5 | False    |            22 | False     | False          |        1.41645  |
-| 412 broccoli casserole               |        40 |         6 |        5 |            5 | False    |            32 | False     | True           |        1.95611  |
-| 412 broccoli casserole               |        40 |         6 |        5 |            5 | False    |            32 | False     | True           |        1.95611  |
-| 412 broccoli casserole               |        40 |         6 |        5 |            5 | False    |            32 | False     | True           |        1.95611  |
+|    | name                                 |   minutes |   n_steps |   n_ingredients |   rating |   avr_rating | is_kid   |   sodium(PDV) | is_free   | has_vegfruit   |   nutrition_idx |
+|---:|:-------------------------------------|----------:|----------:|----------------:|---------:|-------------:|:---------|--------------:|:----------|:---------------|----------------:|
+|  0 | 1 brownies in the world    best ever |        40 |        10 |               9 |        4 |            4 | False    |             3 | False     | False          |        0.542309 |
+|  1 | 1 in canada chocolate chip cookies   |        45 |        12 |              11 |        5 |            5 | False    |            22 | False     | False          |        1.41645  |
+|  2 | 412 broccoli casserole               |        40 |         6 |               9 |        5 |            5 | False    |            32 | False     | True           |        1.95611  |
+|  3 | 412 broccoli casserole               |        40 |         6 |               9 |        5 |            5 | False    |            32 | False     | True           |        1.95611  |
+|  4 | 412 broccoli casserole               |        40 |         6 |               9 |        5 |            5 | False    |            32 | False     | True           |        1.95611  |
 
 ### Univariate Analyses
 
@@ -84,10 +84,10 @@ Below are the first few rows of our final cleaned dataframe.
 
 ### Interesting Aggregates
 
-|   sodium(PDV) |   minutes |   n_steps |   n_ingredients |   is_free |   rating |
-|--------------:|----------:|----------:|----------------:|----------:|---------:|
-|       28.6239 |   70.4862 |  10.0143  |         9.15846 | 0.0593935 |  4.68081 |
-|       23.7842 |   62.3692 |   9.95724 |         8.41533 | 0.0850192 |  4.67098 |
+| is_kid   |   sodium(PDV) |   minutes |   n_steps |   n_ingredients |   is_free |   rating |
+|:---------|--------------:|----------:|----------:|----------------:|----------:|---------:|
+| False    |       28.6239 |   70.4862 |  10.0143  |         9.15846 | 0.0593935 |  4.68081 |
+| True     |       23.7842 |   62.3692 |   9.95724 |         8.41533 | 0.0850192 |  4.67098 |
 
 ---
 ## Assessment of Missingness
@@ -131,10 +131,6 @@ Below are the first few rows of our final cleaned dataframe.
 
 ---
 ## Fairness Analysis
-|   accuracy |
-|-----------:|
-|   0.952333 |
-|   0.944421 |
 
 <iframe
   src="assets/fairp.html"
