@@ -134,12 +134,7 @@ In this section, we examine the missingness dependency of the `rating` column. W
 - **Test Statistic:** The Total Variation Distance (TVD) in whether the recipe is labeled as kid-friendly between the group with missing ratings and the group without missing ratings.
 - **Significance Level:** 0.05
 
-<iframe 
-src="assets/missingk.html" 
-width="800" 
-height="600" 
-frameborder="0"
-></iframe>
+<iframe src="assets/missingk.html" width="800" height="600" frameborder="0"></iframe>
 
 #### Dependency on `sodium(PDV)`
 
@@ -148,12 +143,7 @@ frameborder="0"
 - **Test Statistic:** The Kolmogorov–Smirnov (K-S) statistic in the sodium (PDV) level distribution between the group with missing ratings and the group without missing ratings.
 - **Significance Level:** 0.05
 
-<iframe 
-src="assets/missings.html" 
-width="800" 
-height="600" 
-frameborder="0"
-></iframe>
+<iframe src="assets/missings.html" width="800" height="600" frameborder="0"></iframe>
 
 
 ---
