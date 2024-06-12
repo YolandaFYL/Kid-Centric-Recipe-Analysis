@@ -9,9 +9,9 @@ This is a data science project for the DSC 80 Final Project, The Data Science Li
 Good nutrition for kids is essential for their growth, development, and long-term health. A balanced diet that includes grains, vegetables, fruits, protein, and dairy ensures that children receive the necessary vitamins and minerals to strengthen their immune systems, support cognitive development, and build strong bones and muscles. Proper nutrition helps prevent childhood obesity, which has tripled in the United States since the 1970s and is linked to serious health issues like type 2 diabetes and heart disease. Additionally, instilling healthy eating habits early on can foster a positive relationship with food, help children recognize hunger and fullness cues, and set the foundation for lifelong healthy eating. Ensuring kids eat a variety of nutrient-rich foods regularly not only promotes their immediate well-being but also helps them establish routines and habits that contribute to their overall quality of life as they grow.
 
 ### Dataset Overview
-#### Recipe Dataset
-- **Rows**: 83,782
-- **Columns**: 10
+#### 	Recipe Dataset
+- 		**Rows**: 83,782
+- 		**Columns**: 10
 
 | Column          | Description                                                                                                         |
 |-----------------|---------------------------------------------------------------------------------------------------------------------|
@@ -28,9 +28,9 @@ Good nutrition for kids is essential for their growth, development, and long-ter
 | `ingredients`   | Text for recipe ingredients                                                                                         |
 | `n_ingredients` | Number of ingredients in the recipe                                                                                 |
 
-#### Interactions Dataset
-- **Rows**: 731,927
-- **Columns**: 5
+#### 	Interactions Dataset
+- 		**Rows**: 731,927
+- 		**Columns**: 5
 
 | Column    | Description           |
 |-----------|-----------------------|
