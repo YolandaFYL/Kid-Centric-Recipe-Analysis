@@ -100,7 +100,7 @@ For this analysis, we examined the distribution of sodium(PDV) values across rec
   width="800"
   height="600"
   frameborder="0"
-></iframe>
+></iframe>  
 
 ### Bivariate Analyses 
 For this analysis, we examined the distribution of sodium(PDV) values conditioned on whether the item is labeled for kids (True) or not (False). Both distributions are right-skewed, but items labeled for kids generally have lower sodium values compared to those not labeled for kids. This indicates that food items intended for children tend to contain less sodium. We will further analyze whether this difference is significant in later sections. 
@@ -109,7 +109,7 @@ For this analysis, we examined the distribution of sodium(PDV) values conditione
   width="800"
   height="600"
   frameborder="0"
-></iframe>
+></iframe>  
 
 ### Interesting Aggregates
 In this section, we investigate the relationship between whether the recipe is kid-friendly and other columns we believe are relavent in the dataframe, including `'sodium(PDV)'`, `'minutes'`, `'n_steps'`, `'n_ingredients'`, `'is_free'`, and `'rating'`. We group by the is_kid label and aggregate the mean of each columns.
@@ -124,11 +124,11 @@ Above is the summary table comparing various characteristics between recipes lab
 ---
 ## Assessment of Missingness
 
-In our cleaned dataset, only the `rating` column has missing values, so we decided to investigate the factors that could be affecting the missingness of users' ratings on certain recipes.
+In our cleaned dataset, only the `'rating'` column has missing values, so we decided to investigate the factors that could be affecting the missingness of users' ratings on certain recipes.
 
 ### NMAR Analysis
 
-We believe that the missingness of `rating` is NMAR (Not Missing At Random), because, given a one to five grading scale range, if people choose not to fill in the stars, it is highly likely they believe this recipe does not deserve even a single star. That is, the missingness in the `rating` column reflects the user's extreme dissatisfaction with the recipe. 
+We believe that the missingness of `'rating'` is NMAR (Not Missing At Random), because, given a one to five grading scale range, if people choose not to fill in the stars, it is highly likely they believe this recipe does not deserve even a single star. That is, the missingness in the `'rating'` column reflects the user's extreme dissatisfaction with the recipe. 
 
 To better understand and capture the users' satisfaction levels, we can introduce an additional feature in the comments section, allowing users to choose from options like "Recommended," "Meh," and "Do Not Recommend." This approach could provide more insight into users' levels of satisfaction with the recipes.
 
