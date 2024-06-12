@@ -76,7 +76,7 @@ Shown below is the names of the columns that are relevant to our question and th
   **Transform each recipe's nutrion into fraction:** total fat(PDV) * 65 * 9; protein(PDV) * 55 * 4; carbohydrates(pdv) * 300 * 4 (since other nutrient does not take into account of calorie calculations, we also ignore them in the index calculation)  
   **The balanced fraction we get from the reference:** total fat: 0.3; protein: 0.3; carbonhydrates: 0.4  
   **The formula for calculating the distance:** (sum(recipe - balanced) ** 2 / 3) ** (1 / 2) * 100
-  - We add this new column because we believe that recipes with lower index (balanced, more healthier) are typically more kid-friendly. This column gives us another indicator to compare the kid-friendly recipes with not kid-friendly recipes.    
+  - We add this new column because we believe that recipes with lower index (more healthier) are typically more kid-friendly. This column gives us another indicator to compare the kid-friendly recipes with not kid-friendly recipes.    
 
 
 11. Selecting the final columns we need for the future analysis by dropping redundant or useless columns
@@ -94,7 +94,7 @@ Our cleaned dataframe has 233867 rows and 11 columns. Below are the first 5 rows
 |  4 | 412 broccoli casserole               |        40 |         6 |               9 |        5 |            5 | False    |            32 | False     | True           |        1.95611  |
 
 ### Univariate Analyses
-
+For this analysis, we examined the distribution of sodium(PDV) values across recipes. It shows a heavily right-skewed distribution, with the majority of the data concentrated at lower sodium values and a long tail extending to higher values. This decreasing trend also suggests that as the sodium level increases, there are less recipes on our website.
 <iframe
   src="assets/uni.html"
   width="800"
@@ -103,7 +103,7 @@ Our cleaned dataframe has 233867 rows and 11 columns. Below are the first 5 rows
 ></iframe>
 
 ### Bivariate Analyses 
-
+For this analysis, we examined the distribution of sodium(PDV) values conditioned on whether the item is labeled for kids (True) or not (False). Both distributions are right-skewed, but items labeled for kids generally have lower sodium values compared to those not labeled for kids. This indicates that food items intended for children tend to contain less sodium. We will further analyze whether this difference is significant in later sections. 
 <iframe
   src="assets/bi.html"
   width="800"
@@ -112,11 +112,14 @@ Our cleaned dataframe has 233867 rows and 11 columns. Below are the first 5 rows
 ></iframe>
 
 ### Interesting Aggregates
+In this section, we investigate the relationship between whether the recipe is kid-friendly and other columns we believe are relavent in the dataframe, including `'sodium(PDV)'`, `'minutes'`, `'n_steps'`, `'n_ingredients'`, `'is_free'`, and `'rating'`. We group by the is_kid label and aggregate the mean of each columns.
 
 | is_kid   |   sodium(PDV) |   minutes |   n_steps |   n_ingredients |   is_free |   rating |
 |:---------|--------------:|----------:|----------:|----------------:|----------:|---------:|
 | False    |       28.6239 |   70.4862 |  10.0143  |         9.15846 | 0.0593935 |  4.68081 |
 | True     |       23.7842 |   62.3692 |   9.95724 |         8.41533 | 0.0850192 |  4.67098 |
+
+Above is the summary table comparing various characteristics between recipes labeled is kid-friendly and those not labeled. It shows that items for kids have lower average sodium content (23.78 vs. 28.62), take less time to prepare (62.37 vs. 70.49 minutes), and have fewer ingredients (8.42 vs. 9.16). Interestingly, items for kids are more likely to be free (0.09 vs. 0.06) and have a slightly lower average rating (4.67 vs. 4.68), highlighting significant differences in nutritional content, preparation complexity, and accessibility between the kid-friendly recipes and not kid-friendly recipes. This interesting aggregates offer us a significant insight on which features of a recipe may correlate more with the kid-friendly labeling which inform us on future testing and modeling.
 
 ---
 ## Assessment of Missingness
