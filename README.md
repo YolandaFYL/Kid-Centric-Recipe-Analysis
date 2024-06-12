@@ -13,7 +13,8 @@ Good nutrition for kids is essential for their growth, development, and long-ter
 With this information in mind, our project aims to **investigate the features of recipes that make them kid-friendly**. By doing so, we hope to provide valuable insights for caregivers to better support children's nutritional needs. To achieve this, we are analyzing two datasets consisting of recipes and ratings posted since 2008 on food.com. These datasets were originally compiled for the recommender system research paper, "Generating Personalized Recipes from Historical User Preferences" by Majumder et al.
 
 ### Dataset Overview
-#### 	Recipe Dataset
+
+#### Recipe Dataset
 - **Rows**: 83,782
 - **Columns**: 10
 
@@ -32,7 +33,7 @@ With this information in mind, our project aims to **investigate the features of
 | `ingredients`   | Text for recipe ingredients                                                                                         |
 | `n_ingredients` | Number of ingredients in the recipe                                                                                 |
 
-#### 	Interactions Dataset
+#### Interactions Dataset
 - **Rows**: 731,927
 - **Columns**: 5
 
@@ -43,6 +44,7 @@ With this information in mind, our project aims to **investigate the features of
 | `date`    | Date of interaction   |
 | `rating`  | Rating given          |
 | `review`  | Review text           |
+
 
 ---
 
