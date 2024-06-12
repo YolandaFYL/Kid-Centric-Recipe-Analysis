@@ -11,7 +11,9 @@ Good nutrition is essential for children's growth, development, and long-term he
 
 In light of this, our project aims to **investigate the features of recipes that make them kid-friendly** by focusing on the recipe's sodium content, balanced nutrients, preparation process, and safety. By doing so, we hope to provide valuable insights for caregivers to better support children's nutritional needs for a healthier life. To achieve this, we are analyzing two datasets consisting of recipes and ratings posted since 2008 on [food.com](https://www.food.com/). These datasets were originally compiled for the recommender system research paper, "[Generating Personalized Recipes from Historical User Preferences](https://cseweb.ucsd.edu/~jmcauley/pdfs/emnlp19c.pdf)" by Majumder et al.
 
-To facilitate the investigation of our question, we examined both datasets and chose some of the highly relevant columns. The *Recipe Dataset* contains recipes from the website, an online recipe-sharing platform. This dataset has 83,782 rows and 10 columns. The *Interactions Dataset* contains reviews and ratings submitted for the recipes in the *Recipe Dataset*. This dataset has 731,927 rows and 5 columns.
+To facilitate the investigation of our question, we examined both datasets and chose some of the highly relevant columns. The *Recipe Dataset* contains recipes from the website, an online recipe-sharing platform. This original dataset has 83,782 rows and 10 columns. The *Interactions Dataset* contains reviews and ratings submitted for the recipes in the *Recipe Dataset*. This original dataset has 731,927 rows and 5 columns.
+
+Shown below is the names of the columns that are relevant to our question and the description of the relevant columns.
 
 
 | Column      | Description                                                                                                           |
@@ -31,30 +33,44 @@ To facilitate the investigation of our question, we examined both datasets and c
 
 ### Data Cleaning
 1. Left merge the recipes and interactions datasets together.
+  - In this step, we match the recipes in the recipes dataset with their rating and reviews in the interactions dataset.
 
 2. In the merged dataset, fill all ratings of 0 with np.nan.
+  - On our website, we can find that the rating of recipes are represented as filled in stars. With that being said, the rating in our dataset is scale from 1 to 5, where 1 represents the lowest rating and 5 represents the highest. Thus, if the rating is 0, then that means this rating is missing. Therefore, we should replace all the 0 rating with np.nan to indicate missing and avoid further calculating bias.
 
 3. Find the average rating per recipe, as a Series. Add this Series containing the average rating per recipe to the merged dataset.
+  - After we match recipes with their rating and reviews, recipes have different number of ratings and reviews from users. Therefore, to better understand how each recipe is rated, we find the average of ratings of each given recipe.
 
 4. Clean and change the data in the 'nutrition' column to dictionary type.
+  - Nutrion information was initially in the form of 'faked' list, where each of them is a string that looks like the list format. Therefore, to clean the data in the column for conducting numerical calculations, we extract all the useful information (containing nutrient and their PDV) out of the string and form that into dictionary type where keys are the nutrient in string format and the values are the corresponding PDV in percentage in float format.
 
-5. Clean and isolating the strings in 'tags', 'steps', and 'ingredients' columns into words in list.
+5. Clean and isolating the strings in 'tags' columns into words in list.
+  - The information in 'tags' column was also initially in the form of 'faked' list, where each of them is a string that looks like a list format. Therefore, to clean the data in the column for further catogorizing the recipe, we find all the tags as word strings using regular expression and place them in a list for each recipe.
 
 6. Dealing with outliers of the 'minutes' column (we consider minutes > 4320 as outliers) and the 'nutrition' column (we consider calories == 0 as outliers) by dropping the corresponding rows.
+  - After exploring the data and search for the exact recipe on the website, we found that some recipes have irrgular cost time, which lead to a very huge number in the 'minutes' column. Therefore, to perform a fair and general calculation, we look at the distribution of the minutes and conclude that the recipes with minutes more than 4320 are outliers. Also, we found a very small amount of recipes whose calories in the 'nutrition' column to be 0. Since we are considering the healthiness of a recipe based on calories, we treat these recipes as outliers. We finally deal with the outliers in these two columns by dropping the corresponding rows.
 
-7. Adding a new boolean column ('is_kid') indicating whether the recipe contains kid-friendly tags
+7. Adding a new boolean column (`is_kid`) indicating whether the recipe contains kid-friendly tags
+  -  `is_kid` is a boolean column checking whether the tags of recipes contain 'kid-friendly'. This step separates the the recipes into two groups, where True group contains recipes that are kid-friendly and False group contains not labelled kid-friendly. This is our main focus in this project.
 
-8. Adding a new float column('sodium(PDV)') indicating the sodium(PDV) level of the recipe
+8. Adding a new float column(`sodium(PDV)`) indicating the sodium(PDV) level of the recipe
+  - `sodium(PDV)` is a float column containing the sodium PDV level in percentage of each recipe. We add this new column because we believe that recipes with lower sodium(PDV) level typically are more kid-friendly. This column gives us an indicator to compare the kid-friendly recipes with not kid-friendly recipes.
 
-9. Adding a new boolean column ('has_vegfruit') indicating whether the recipe contains fruit or vegetables
+9. Adding a new boolean column (`has_vegfruit`) indicating whether the recipe contains fruit or vegetables
+  - `has_vegfruit` is a boolean column chekcing whether the tags of recipes contain 'vegetable' or 'fruit'. We add this new column because we believe that recipes with vegetable or fruit tags are typically more kid-friendly. This column gives us another indicator to compare the kid-friendly recipes with not kid-friendly recipes.
 
-10. Creating and calculating a comprehensive index for the 'nutrition' column where lower index value means a relatively healthier recipe based on [This Reference](https://health.gov/sites/default/files/2020-01/1995%20Dietary%20Guidelines%20for%20Americans.pdf)
+10. Creating and calculating a comprehensive index for the 'nutrition' column based on [This Reference](https://health.gov/sites/default/files/2020-01/1995%20Dietary%20Guidelines%20for%20Americans.pdf). Adding a new float column (`nutrition_idx`) containing the nutrition index calculated.
+  - `nutrition_idx` is a float column containing a calculated index for each recipe where lower index value means a relatively healthier recipe and vice versa. We perform the calculation by first turning the PDV back into the real consuming value through multiply the suggested daily value, then we divide by the total calories to get a fraction. Then, we calculate the distance between each recipe's fraction and the suggested fraction of each nutrient in the reference. 
+  - Here is the value we use for calculation: 
+  **Transform each recipe's nutrion into fraction:** total fat(pdv) * 65 * 9; protein(pdv) * 55 * 4; carbohydrates(pdv) * 300 * 4 (since other nutrient does not take into account of calorie calculations, we also ignore them in the index calculation)
+  **The balanced fraction we get from the reference:** total fat: 0.3; protein: 0.3; carbonhydrates: 0.4
+  **The formula for calculating the distance:** (sum(recipe - balanced) ** 2 / 3) ** (1 / 2) * 100
+  - We add this new column because we believe that recipes with lower index (more healthier) are typically more kid-friendly. This column gives us another indicator to compare the kid-friendly recipes with not kid-friendly recipes.
 
-11. Adding a new float column containing the nutrition index calculated.
+11. Selecting the final columns we need for the future analysis by dropping redundant or useless columns
+  - By dropping other useless and redundant columns, we reduce the size of the dataframe, making our future testing and modeling quicker.
 
-12. Selecting the final columns we need for the future analysis by dropping redundant or useless columns
-
-Below are the first few rows of our final cleaned dataframe.
+Our cleaned dataframe has 233867 rows and 11 columns. Below are the first 5 rows of our final cleaned dataframe.
 
 |    | name                                 |   minutes |   n_steps |   n_ingredients |   rating |   avr_rating | is_kid   |   sodium(PDV) | is_free   | has_vegfruit   |   nutrition_idx |
 |---:|:-------------------------------------|----------:|----------:|----------------:|---------:|-------------:|:---------|--------------:|:----------|:---------------|----------------:|
