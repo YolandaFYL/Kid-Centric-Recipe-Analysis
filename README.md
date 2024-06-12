@@ -95,13 +95,13 @@ Our cleaned dataframe has 233867 rows and 11 columns. Below are the first 5 rows
 
 ### Univariate Analyses
 
-<iframe src="assets/uni.html" width="600" height="400" frameborder="0"></iframe>
+<iframe src="assets/uni.html" width="650" height="450" frameborder="0"></iframe>
 
 For this analysis, we examined the distribution of sodium(PDV) values across recipes. It shows a heavily right-skewed distribution, with the majority of the data concentrated at lower sodium values and a long tail extending to higher values. This decreasing trend also suggests that as the sodium level increases, there are less recipes on our website.
 
 ### Bivariate Analyses 
 
-<iframe src="assets/bi.html" width="600" height="400" frameborder="0"></iframe>
+<iframe src="assets/bi.html" width="650" height="450" frameborder="0"></iframe>
 
 For this analysis, we examined the distribution of sodium(PDV) values conditioned on whether the item is labeled for kids (True) or not (False). Both distributions are right-skewed, but items labeled for kids generally have lower sodium values compared to those not labeled for kids. This indicates that food items intended for children tend to contain less sodium. We will further analyze whether this difference is significant in later sections. 
 
@@ -137,7 +137,7 @@ In this section, we examine the missingness dependency of the `'rating'` column.
 - **Test Statistic:** The Total Variation Distance (TVD) in whether the recipe is labeled as kid-friendly between the group with missing ratings and the group without missing ratings.
 - **Significance Level:** 0.05
 
-<iframe src="assets/missingk.html" width="800" height="600" frameborder="0"></iframe>
+<iframe src="assets/missingk.html" width="850" height="650" frameborder="0"></iframe>
 
 #### Dependency on `'sodium(PDV)'`
 
@@ -146,18 +146,13 @@ In this section, we examine the missingness dependency of the `'rating'` column.
 - **Test Statistic:** The Kolmogorov–Smirnov (K-S) statistic in the sodium (PDV) level distribution between the group with missing ratings and the group without missing ratings.
 - **Significance Level:** 0.05
 
-<iframe src="assets/missings.html" width="800" height="600" frameborder="0"></iframe>
+<iframe src="assets/missings.html" width="850" height="650" frameborder="0"></iframe>
 
 
 ---
 ## Hypothesis Testing
 
-<iframe
-  src="assets/ht.html"
-  width="800"
-  height="600"
-  frameborder="0"
-></iframe>
+<iframe src="assets/ht.html" width="850" height="650" frameborder="0"></iframe>
 
 ---
 ## Framing a Prediction Problem
@@ -171,10 +166,5 @@ In this section, we examine the missingness dependency of the `'rating'` column.
 ---
 ## Fairness Analysis
 
-<iframe
-  src="assets/fairp.html"
-  width="800"
-  height="600"
-  frameborder="0"
-></iframe>
+<iframe src="assets/fairp.html" width="850" height="650" frameborder="0"></iframe>
 ---
