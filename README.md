@@ -82,7 +82,7 @@ Shown below is the names of the columns that are relevant to our question and th
 11. Selecting the final columns we need for the future analysis by dropping redundant or useless columns
   - By dropping other useless and redundant columns, we reduce the size of the dataframe, making our future testing and modeling quicker.    
   
-### Result
+#### Result
 Our cleaned dataframe has 233,867 rows and 11 columns. Below are the first 5 rows of our final cleaned dataframe.
 
 |    | name                                 |   minutes |   n_steps |   n_ingredients |   rating |   avr_rating | is_kid   |   sodium(PDV) | is_free   | has_vegfruit   |   nutrition_idx |
@@ -184,7 +184,7 @@ Then we shuffle the `'is_kid'` column for 1000 repetitions, collected the mean d
 
 <iframe src="assets/ht.html" width="850" height="650" frameborder="0"></iframe>
 
-### Conclusion of the hypothesis testing
+#### Conclusion of the hypothesis testing
 After calculating the `p-value` (0.0), we find that it is smaller than our significant level 0.05, thus we **reject the null hypothesis**. This suggests that the sodium(PDV) level of kid-friendly recipes is significantly lower than the sodium(PDV) level of recipes without a kid-friendly label.
 
 ---
@@ -194,7 +194,7 @@ We plan to predict whether a recipe is kid-friendly, which would be a binary cla
 
 The metric we are using to evaluate our model is the F-1 score. We believe the F-1 score is the optimal metric for us for the following reasons:
 
-1. **Unbalanced Data:** Our dataset is unbalanced. Out of all 233,867 rows, only 26,100 rows, around 10%, evaluate to `True` for `is_kid`. This imbalance makes accuracy an unsuitable evaluation metric for our model, as it could be misleading.
+1. **Unbalanced Data:** Our dataset is unbalanced. Out of all 233,867 rows, only 26,100 rows, around 10%, evaluate to `True` for `'is_kid'`. This imbalance makes accuracy an unsuitable evaluation metric for our model, as it could be misleading.
 
 2. **Precision and Recall:** Both variety and healthiness are important in building good eating habits for children. Therefore, we care about both the precision and recall levels of our model. The F-1 score, which is the harmonic mean of precision and recall, provides a balanced measure of these two metrics, ensuring our model gives the best prediction of a large variety of actually healthy recipes that are suitable for preparing for kids.
 
