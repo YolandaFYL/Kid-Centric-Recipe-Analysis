@@ -6,8 +6,8 @@ This is a data science project for the DSC 80 Final Project, The Data Science Li
 
 ---
 ## Introduction
-### Dataset Overview
 
+### Dataset Overview
 #### Recipe Dataset
 
 - **Rows**: 83,782
