@@ -1,4 +1,6 @@
-# recipe_investigation
+# Kid-Centric Recipe Analysis
+---
+
 ## Introduction
 ---
 ## Data Cleaning and Exploratory Data Analysis
