@@ -180,11 +180,10 @@ The reason we choose to run a permutation test is because we do not know the ove
 
 To run the permutation test, we first seperate the data points by split them into two groups (`'is_kid' == True` and `'is_kid' == False`). Based on this, we calculat our observed statistic by subtracting the mean of sodium(PDV) value of the `'is_kid' == True` from the `'is_kid' == False` group. This value `obs` is equal to `4.84`.  
   
-Then we shuffle the `'is_kid'` column for 1000 repetitions, collected the mean differences, and calculate the p-value. Our `p-value` is equal to `0.0`
+Then we shuffle the `'is_kid'` column for 1000 repetitions, collect the mean differences, and calculate the p-value. Our `p-value` is equal to `0.0`
 
 <iframe src="assets/ht.html" width="850" height="650" frameborder="0"></iframe>
 
-#### Conclusion of the hypothesis testing
 After calculating the `p-value` **(0.0)**, we find that it is smaller than our significant level 0.05, thus we **reject the null hypothesis**. This suggests that the sodium(PDV) level of kid-friendly recipes is significantly lower than the sodium(PDV) level of recipes without a kid-friendly label.
 
 ---
@@ -230,6 +229,22 @@ The metric we are using to evaluate our model is the F1 score, which balances pr
 
 ---
 ## Fairness Analysis
+For the fairness analysis, we split the recipes into two groups: high sodium(PDV) and low sodium(PDV). Using the median of the `'sodium(PDV)'` column, we quantify sodium level < 15 as `low` and else being `high`. We choose to use the median of the column instead of the mean becuase we've previously seen that the sodium(PDV) data is significantly skew to the right with a few very large value which may result in a biased result.  
+  
+We choose to evaluate the **accuracy parity** of the model since we believe it is more important for our classification model to have the same accuracy for recipes with high sodium level and recipes with low sodium level. In our model, although sodium(PDV) level is an important feature, it should not be the only decisive one among all features. For example, we might encounter recipes with pickled vegetables. Although its sodium(PDV) level might be extremingly high, considering its vegetable nature and the relatively little amount we take each time, we might not want to directly categorize this to be not kid-friendly. Therefore, we want to achieve the accuracy parity between high sodium(PDV) group and low sodium(PDV) group, choosing **accuracy** to be our evaluation metric.  
+  
+We run a **permutation test** to test whether this difference in accuracy is significant
+- **Null Hypothesis**: Our classifier's accuracy is the same for recipes with low sodium level and high sodium level, and any differences are due to chance.
+- **Alternative Hypothesis**: Our classifier's accuracy is not the same fot recipes with low and high sodium level.
+- **Test statistic**: Absolute difference in accuracy
+- **Significance level**: 0.05  
+  
+We first seperate the data points by split them into two groups (`'sodium(PDV)' == 'high'` and `'sodium(PDV)' == 'low'`) and store the result in a new column `'is_low'`. Based on this, we calculate our observed statistic by getting the absolute value between the difference in accuracy of our prediction of the `'sodium(PDV)' == 'high'` and the `'sodium(PDV)' == 'low'` group. This value `obs` is equal to `0.008`.  
+  
+Then we shuffle the `'is_low'` column for 1000 repetitions, collecte the mean differences, and calculate the p-value. Our `p-value` is equal to `0.001`
 
 <iframe src="assets/fairp.html" width="850" height="650" frameborder="0"></iframe>
+
+Our p-value (0.001) is less than our significant level 0.05. We **reject** the null hypothesis. It seems that the difference in accuracy across the two groups **is significant**. Thus, out classifier likely does not achieve accuracy parity, and we might need more further work to address it.
+
 ---
