@@ -201,7 +201,7 @@ The metric we are using to evaluate our model is the F-1 score. We believe the F
 ---
 ## Baseline Model
 
-For our baseline model, we are utilizing a decision tree classifier. After searching for the best hyperparameter combination, we determined the optimal settings to be a maximum tree depth of 500, a minimum sample split of 10, and using entropy as the criterion.
+For our baseline model, we are utilizing a decision tree classifier. After using GridSearchCV() searching for the best hyperparameter combination, we determined the optimal settings to be a maximum tree depth of 500, a minimum sample split of 10, and using entropy as the criterion.
 
 The features we are using for this model are:
 
