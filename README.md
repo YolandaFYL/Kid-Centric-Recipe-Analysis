@@ -205,11 +205,11 @@ For our baseline model, we are utilizing a decision tree classifier. After searc
 
 The features we are using for this model are:
 
-- **`minutes`**: This column contains quantitative numerical values of how long it takes to cook the recipe. It is a good indicator of how practical it is to actually recreate the recipe in an average household situation.
-- **`sodium(PDV)`**: This column contains quantitative numerical values of the sodium content in the specific recipe. Since children should limit sodium intake to reduce known health risks, this feature is crucial.
-- **`is_free`**: This column contains categorical boolean values indicating whether the recipe is free of some kind of allergen. This is important for safety considerations, as children may be more vulnerable to allergic reactions, especially if they are unexpected or previously unnoticed.
+- **`'minutes'`**: This column contains quantitative numerical values of how long it takes to cook the recipe. It is a good indicator of how practical it is to actually recreate the recipe in an average household situation.
+- **`'sodium(PDV)'`**: This column contains quantitative numerical values of the sodium content in the specific recipe. Since children should limit sodium intake to reduce known health risks, this feature is crucial.
+- **`'is_free'`**: This column contains categorical boolean values indicating whether the recipe is free of some kind of allergen. This is important for safety considerations, as children may be more vulnerable to allergic reactions, especially if they are unexpected or previously unnoticed.
 
-We one-hot encoded the boolean values in `is_free` with corresponding 0 and 1 values and passed through all numerical values.
+We one-hot encoded the boolean values in `'is_free'` with corresponding 0 and 1 values and passed through all numerical values.
 
 The metric we are using to evaluate our model is the F1 score, which balances precision and recall. For this model, the F1 score is 0.8733. We consider this to be a fairly good model, with balanced precision (0.8832) and recall (0.9001) performance. This model covers the basic aspects of what makes a recipe suitable for preparing for kids: it is low in sodium, safe, and relatively easy to prepare.
 
