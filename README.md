@@ -201,7 +201,7 @@ The metric we are using to evaluate our model is the F-1 score. We believe the F
 ---
 ## Baseline Model
 
-For our baseline model, we are utilizing a decision tree classifier. After using GridSearchCV() searching for the best hyperparameter combination, we determined the optimal settings to be a maximum tree depth of 500, a minimum sample split of 10, and using entropy as the criterion.
+For our baseline model, we are utilizing a **decision tree classifier**. After using GridSearchCV(cv=5) searching for the best hyperparameter combination, we determined the optimal settings to be a maximum tree depth of 500, a minimum sample split of 10, and using entropy as the criterion.
 
 The features we are using for this model are:
 
@@ -215,6 +215,18 @@ The metric we are using to evaluate our model is the F1 score, which balances pr
 
 ---
 ## Final Model
+
+For our final model, we are utilizing a **decision tree classifier**. After using GridSearchCV(cv=5) to search for the best hyperparameter combination, we determined the optimal settings to be a maximum tree depth of 1000, a minimum sample split of 10, and using entropy as the criterion.
+
+The additional features we are using for the final model are:
+
+- **`n_steps`**: This column contains quantitative numerical values indicating how many steps it takes to cook the recipe. It is another good indicator of how practical it is to recreate the recipe in an average household situation.
+- **`nutrition_idx`**: This column contains quantitative numerical values of the nutrition index value we calculated as an indicator of the source of calories this recipe suggests. This gives us a more comprehensive understanding of how balanced this dish is, which is important for supporting daily activity energy and child growth according to [This Reference](https://health.gov/sites/default/files/2020-01/1995%20Dietary%20Guidelines%20for%20Americans.pdf).
+- **`is_vegfruit`**: This column contains categorical boolean values indicating whether the recipe contains vegetables or fruits as labeled on the website. This provides a broad view of whether the recipe is balanced in terms of ingredients. It is also highly recommended for kid-friendly recipes to include vegetables and fruits as they provide essential vitamins and minerals that are hard to get from processed food.
+
+We one-hot encoded the boolean values in `is_vegfruit` with corresponding 0 and 1 values and passed through all numerical values.
+
+The metric we are using to evaluate our model is the F1 score, which balances precision and recall. For this model, **the F1 score is 0.9480**. We consider this to be an excellent model, with balanced precision (0.9477) and recall (0.9483) performance. This model not only improves the F1 score from 0.8733 to 0.9480, but also provides a comprehensive understanding of what makes a recipe kid-friendly, relating to our topic question and background information. The features used in the final model highlight the importance of offering a variety of balanced, low-effort, and low-risk recipes for kids.
 
 ---
 ## Fairness Analysis
