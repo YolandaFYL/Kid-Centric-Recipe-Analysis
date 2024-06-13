@@ -241,7 +241,7 @@ We run a **permutation test** to test whether this difference in accuracy is sig
   
 We first seperate the data points by split them into two groups (`'sodium(PDV)' == 'high'` and `'sodium(PDV)' == 'low'`) and store the result in a new column `'is_low'`. Based on this, we calculate our observed statistic by getting the absolute value between the difference in accuracy of our prediction of the `'sodium(PDV)' == 'high'` and the `'sodium(PDV)' == 'low'` group. This value `obs` is equal to `0.008`.  
   
-Then we shuffle the `'is_low'` column for 1000 repetitions, collecte the mean differences, and calculate the p-value. Our `p-value` is equal to `0.001`
+Then we shuffle the `'is_low'` column for 1000 repetitions, collect the mean differences, and calculate the p-value. Our `p-value` is equal to `0.001`
 
 <iframe src="assets/fairp.html" width="850" height="650" frameborder="0"></iframe>
 
